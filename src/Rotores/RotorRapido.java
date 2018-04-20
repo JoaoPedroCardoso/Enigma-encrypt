@@ -40,6 +40,8 @@ public class RotorRapido {
 					pos = i;
 				}
 			}
+		}else if(letra.contains(" ")) {
+			pos = -10;
 		}
 		else {
 			pos = -1;

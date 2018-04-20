@@ -31,13 +31,18 @@ public class RotorMedio {
 	
 	public char retornaLetra(Integer posicao1) {
 		Integer pos = 0;
-		for(int i= 0; i< R2.size()-1; i++) {
-			if(R2.get(i) == posicao1) {
-				pos = i;
+		if(posicao1 == -10) {
+			this.rotacionaRotor();
+			return " ".charAt(0);
+		}else {
+			for(int i= 0; i< R2.size()-1; i++) {
+				if(R2.get(i) == posicao1) {
+					pos = i;
+				}
 			}
+			this.rotacionaRotor();
+			return alpha.charAt(pos);
 		}
-		this.rotacionaRotor();
-		return alpha.charAt(pos);
 	}
 	
 	public Integer returnRotacoes() {
