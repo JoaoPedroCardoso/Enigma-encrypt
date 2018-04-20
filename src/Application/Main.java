@@ -13,7 +13,7 @@ public class Main {
 		System.out.print("Digite a posição inicial que o rotor medio se inicia : ");
 		int posRotorMedio = Integer.parseInt(sc.nextLine());
 		System.out.println();
-		System.out.println("==== RotorRapido: "+posRotorRapido + ", RotorMedio: " + posRotorMedio + " ====");
+		System.out.println("==== Base RotorRapido: "+posRotorRapido + ", Base RotorMedio: " + posRotorMedio + " ====");
 		System.out.println();
 		
 		RotorRapido rotor1 = new RotorRapido(posRotorRapido);
@@ -23,16 +23,23 @@ public class Main {
 		String frase = sc.nextLine(); 
 		String fraseEncrypt = "";
 		System.out.println();
+		int auxRotacaoMedio = 0;
 		
 		for(int i=0; i<frase.length();i++) {
 			System.out.println("Rotor1: "+ rotor1.R1.toString());
 			System.out.println("Rotor2: "+ rotor2.R2.toString());
 			fraseEncrypt += returnEncript(frase.charAt(i)+"", rotor1, rotor2);
-			System.out.println("============  GIRO ROTOR ============ ");
+			System.out.println("============  GIRO ROTOR RAPIDO ============ ");
+			Integer conta = (rotor1.returnRotacoes()/25);
+			if( conta > auxRotacaoMedio && conta >= 1) {
+				auxRotacaoMedio++;
+				System.out.println("============  GIRO ROTOR MEDIO ============ ");
+				System.out.println();
+			}
 		}
 		System.out.println();
 		System.out.println("==== Rotações efetuadas no RotorRapido: "+rotor1.returnRotacoes());
-		System.out.println("==== Rotações efetuadas no RotorMedio: " + rotor2.returnRotacoes());
+		System.out.println("==== Rotações efetuadas no RotorMedio: " + auxRotacaoMedio);
 		
 		System.out.println();
 		System.out.println("Frase encryptgrafada: " + fraseEncrypt);
