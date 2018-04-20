@@ -32,20 +32,24 @@ public class RotorRapido {
 	}
 	
 	public Integer retornaPosicao(String letra) {
-		Integer lixo = 0;
+		Integer pos = 0;
 		if(alpha.contains(letra.toLowerCase())) {
 			Integer x = alpha.indexOf(letra);
 			for(int i= 0; i< R1.size()-1; i++) {
 				if(R1.get(i) == x) {
-					lixo = i;
+					pos = i;
 				}
 			}
 		}
 		else {
-			lixo = -1;
+			pos = -1;
 		}
 		this.rotacionaRotor();
-		return lixo;
+		return pos;
+	}
+	
+	public Integer returnRotacoes() {
+		return rotacoes;
 	}
 	
 }
